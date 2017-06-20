@@ -1,0 +1,14 @@
+// VS Code settings which override the default ones
+{
+	// The below folders will be hidden in VS Code
+	"files.exclude": {
+		// "**/.git": true,
+		// "**/.DS_Store": true,
+		// "node_modules/**": true,
+		// "build/**": true,
+		// ".awcache": true
+	},
+
+	// Folder path containing the tsserver and lib*.d.ts files to use
+	"typescript.tsdk": "node_modules/typescript/lib"
+}
