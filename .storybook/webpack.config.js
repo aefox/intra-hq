@@ -18,6 +18,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loaders: ["babel-loader?cacheDirectory", "awesome-typescript-loader?tsconfig=tsconfig.webpack.json&useCache=true"]
+      },
+          {
+        test: /\.(jpg|png|woff|eot|ttf|svg|gif)$/,
+        loader: "file-loader?name=[name]_[hash].[ext]"
       }
     ]
   }
