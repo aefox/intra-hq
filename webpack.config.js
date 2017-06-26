@@ -59,7 +59,15 @@ const config = {
       {
         test: /\.(jpg|png|woff|eot|ttf|svg|gif)$/,
         loader: "file-loader?name=[name]_[hash].[ext]"
-      }
+      },
+	  {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'postcss-loader'
+      ],
+    },
     ]
   },
 
