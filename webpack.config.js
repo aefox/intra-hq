@@ -16,6 +16,7 @@ const config = {
       'redux-thunk',
       'redux-logger',
       'babel-polyfill',
+
       // this list should be updated
     ],
     app: [
@@ -29,8 +30,8 @@ const config = {
   },
 
   output: {
-      path: path.join(__dirname, 'build'),
-      filename: '[name]_[chunkhash].js'
+    path: path.join(__dirname, 'build'),
+    filename: '[name]_[chunkhash].js'
   },
 
   module: {
@@ -45,17 +46,17 @@ const config = {
         test: /\.tsx?$/,
         loaders: ["babel-loader?cacheDirectory", "awesome-typescript-loader?tsconfig=tsconfig.webpack.json&useCache=true"]
       },
-			{
+      {
         test: /\.(scss|sass)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            {loader: 'css-loader', options: { importLoaders: 1 }},
+            { loader: 'css-loader', options: { importLoaders: 1 } },
             'postcss-loader',
             'sass-loader'
           ]
         })
-			},
+      },
       {
         test: /\.(jpg|png|woff|eot|ttf|svg|gif)$/,
         loader: "file-loader?name=[name]_[hash].[ext]"
