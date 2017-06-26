@@ -1,0 +1,30 @@
+.headerWithLogo  {
+    display: block;
+    max-width: 50px;
+    max-height: 200px;
+
+    top: 0px;
+    left: 0px;
+    position: absolute;
+
+    height: auto;
+    width: auto;
+    color: red
+  }
+
+  .logo img{
+    height: 50px;
+    width: 200px;
+  }
+
+.cssSearch {
+    display: block;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    float : right
+  }
+
+  .selectedMenuItem {
+    color: red;
+  }
