@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import ".././styles/styles.scss";
 
 class Menu extends React.Component<any, any> {
@@ -16,15 +15,17 @@ class Menu extends React.Component<any, any> {
 
     render() {
         const rows = [];
-        this.props.menuItems.forEach( (menuItem) => {
-            // rows.push(<div onClick={ () => alert(menuItem.action) }>{menuItem.name}</div>);
-            if (menuItem === this.state.activeMenuItem) {
-              rows.push(<div onClick={this.clickItem.bind(this, menuItem)} className="selectedMenuItem">
-                  {menuItem.name}</div>);
-            } else {
-              rows.push(<div onClick={this.clickItem.bind(this, menuItem)}>{menuItem.name}</div>);
-            }
-        });
+        if (typeof this.props.menuItems !== "undefined") {
+          this.props.menuItems.forEach( (menuItem) => {
+              // rows.push(<div onClick={ () => alert(menuItem.action) }>{menuItem.name}</div>);
+              if (menuItem === this.state.activeMenuItem) {
+                rows.push(<div onClick={this.clickItem.bind(this, menuItem)} className="selectedMenuItem">
+                    {menuItem.name}</div>);
+              } else {
+                rows.push(<div onClick={this.clickItem.bind(this, menuItem)}>{menuItem.name}</div>);
+              }
+          });
+        }
         return (
             <div>
               <div>

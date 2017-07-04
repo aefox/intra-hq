@@ -43,7 +43,7 @@ const config = {
       },
       {
         test: /\.tsx?$/,
-        loaders: ["babel-loader?cacheDirectory", "awesome-typescript-loader?tsconfig=tsconfig.webpack.json&useCache=true"]
+        loaders: ["babel-loader?cacheDirectory", "awesome-typescript-loader?configFileName=tconfig.webpack.json&useCache=true"]
       },
 			{
         test: /\.(scss|sass)$/,
@@ -57,8 +57,8 @@ const config = {
         })
 			},
       {
-        test: /\.(jpg|png|woff|eot|ttf|svg|gif)$/,
-        loader: "file-loader?name=[name]_[hash].[ext]"
+        test: /\.(jpg|png|woff|eot|ttf|svg|gif)$/i,
+        loader: ["file-loader?name=[name]_[hash].[ext]"]
       }
     ]
   },
@@ -71,7 +71,13 @@ const config = {
     new ExtractTextPlugin('app.styles.css'),
     new webpack.DefinePlugin({
       DEBUG: true
-    })
+    }),
+    new webpack.LoaderOptionsPlugin({
+         // test: /\.xxx$/, // may apply this only for some modules
+         options: {
+           relativeUrls: true
+         }
+       })
   ]
 };
 

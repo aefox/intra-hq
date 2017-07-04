@@ -11,7 +11,7 @@ class Header extends React.Component<any, any> {
         return (
             <div className="headerWithLogo">
               <div className="logo">
-                <Logo logoPath="./src/images/logoCegeka.png"/>
+                <Logo logoPath={require(".././images/logoCegeka.png")}/>
               </div>
             </div>
         );
