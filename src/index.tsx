@@ -1,14 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Hello } from "./components/Hello";
+import { Header } from "./components/Header";
 
 import "bootstrap/scss/bootstrap.scss";
 
 const App = () => {
   return (
-    <div className="jumbotron jumbotron-fluid">
-        <h1 className="display-3">Fluid jumbotron from bootstrap!</h1>
-        <Hello compiler="TypeScript" framework="React" />
+    <div className="container-fluid">
+        <Header compiler="TypeScript" framework="React" />
     </div>
   );
 };
