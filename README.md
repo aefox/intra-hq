@@ -1,4 +1,4 @@
-Intra-HQ React App [![Build Status](https://travis-ci.org/aefox/intra-hq.svg?branch=develop)]
+# Intra-HQ React App [![Build Status](https://travis-ci.org/aefox/intra-hq.svg?branch=develop)]https://travis-ci.org/aefox/intra-hq.svg)
 
 # Getting up and running
 
