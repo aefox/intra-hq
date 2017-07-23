@@ -3,66 +3,24 @@
   "version": "1.0.0",
   "description": "The very awesome UI app intranets.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback --progress --colors",
-    "build": "webpack -p",
-    "storybook": "start-storybook -p 9001 -c .storybook"
-  },
+  "license": "MIT",
   "dependencies": {
-    "@types/node": "^8.0.0",
-    "@types/react": "^15.0.29",
-    "@types/react-dom": "^15.5.0",
-    "@types/react-redux": "^4.4.43",
-    "@types/redux-actions": "^1.2.6",
-    "@types/redux-logger": "^3.0.0",
-    "@types/webpack-env": "^1.13.0",
-    "bootstrap": "v4.0.0-alpha.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-redux": "^5.0.5",
-    "redux": "^3.7.0",
-    "redux-actions": "^2.0.3",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "react-router": "^4.1.2",
+    "react-scripts": "1.0.10"
   },
-  "devDependencies": {
-    "@storybook/react": "^3.1.3",
-    "awesome-typescript-loader": "^3.1.3",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "css-loader": "^0.28.4",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-loader": "^1.8.0",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "^7.1.0",
-    "extract-text-webpack-plugin": "^2.1.2",
-    "file-loader": "^0.11.2",
-    "html-loader": "^0.4.5",
-    "html-webpack-plugin": "^2.28.0",
-    "node-sass": "^4.5.3",
-    "postcss-cssnext": "^2.11.0",
-    "postcss-import": "^10.0.0",
-    "postcss-loader": "^2.0.6",
-    "react-hot-loader": "^1.3.1",
-    "rimraf": "^2.6.1",
-    "sass-loader": "^6.0.6",
-    "source-map-loader": "^0.2.1",
-    "style-loader": "^0.18.2",
-    "tslint": "^5.4.3",
-    "tslint-config-airbnb": "^5.2.0",
-    "tslint-loader": "^3.5.3",
-    "typescript": "^2.3.4",
-    "webpack": "^2.6.1",
-    "webpack-config": "^7.0.0",
-    "webpack-dashboard": "^0.4.0",
-    "webpack-dev-server": "^2.4.5"
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }
