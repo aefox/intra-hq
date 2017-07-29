@@ -1,5 +1,5 @@
-[![Stories in Ready](https://badge.waffle.io/aefox/intra-hq.png?label=ready&title=Ready)](https://waffle.io/aefox/intra-hq?utm_source=badge)
-# Intra-HQ React App [![Build Status](https://travis-ci.org/aefox/intra-hq.svg?branch=develop)](https://travis-ci.org/aefox/intra-hq)
+# Intra-HQ React App [![Build Status](https://travis-ci.org/aefox/intra-hq.svg?branch=develop)](https://travis-ci.org/aefox/intra-hq) [![Stories in Ready](https://badge.waffle.io/aefox/intra-hq.png?label=ready&title=Ready)](https://waffle.io/aefox/intra-hq?utm_source=badge)
+
 
 # Getting up and running
 
