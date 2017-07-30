@@ -12,22 +12,24 @@
 		"react-scripts": "1.0.10"
 	},
 	"devDependencies": {
+		"cross-env": "^5.0.1",
 		"husky": "^0.14.3",
+		"json-server": "^0.11.2",
 		"lint-staged": "^4.0.2",
-		"prettier": "^1.5.3",
-		"json-server": "^0.11.2"
+		"prettier": "^1.5.3"
 	},
 	"scripts": {
 		"precommit": "lint-staged",
-    "prepush": "yarn test",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
+		"test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
 		"eject": "react-scripts eject"
 	},
 	"lint-staged": {
 		"src/**/*.{js,jsx,json,css}": [
 			"prettier --single-quote --write",
+			"test:staged",
 			"git add"
 		]
 	}
