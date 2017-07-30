@@ -19,6 +19,7 @@
 	},
 	"scripts": {
 		"precommit": "lint-staged",
+    "prepush": "yarn test",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
