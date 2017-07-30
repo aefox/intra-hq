@@ -25,5 +25,8 @@
       "prettier --single-quote --write",
       "git add"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.11.2"
   }
 }
