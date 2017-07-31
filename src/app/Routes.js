@@ -8,6 +8,8 @@ import Positions from './Positions';
 import RecruitmentDashboard from './RecruitmentDashboard';
 import TakeTest from './TakeTest';
 import TrainingPaths from './TrainingPaths';
+import TestDefinition from './TehnicalTest/TestDefinition';
+import QuestionCategory from './TehnicalTest/TestDefinition/QuestionCategory';
 
 const Routes = () =>
   <div>
@@ -18,6 +20,7 @@ const Routes = () =>
     <Route path={'/recruitment-dashboard'} component={RecruitmentDashboard} />
     <Route path={'/training-paths'} component={TrainingPaths} />
     <Route path={'/take-test'} component={TakeTest} />
+    <Route path="/test-definition" component={TestDefinition} />
     <Route path={'/'} exact component={App} />
   </div>;
 
