@@ -6,7 +6,8 @@
       "phoneNumber": "0712142512",
       "yearsExperience": 10,
       "position": "coach",
-      "department": "Java"
+      "department": "Java",
+      "unsuitable": true
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "phoneNumber": "0712732512",
       "yearsExperience": 3,
       "position": "dev",
-      "department": ".Net"
+      "department": ".Net",
+      "unsuitable": false
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "phoneNumber": "0754142512",
       "yearsExperience": 5,
       "position": "manager",
-      "department": "Java"
+      "department": "Java",
+      "unsuitable": false
     }
   ]
 }

@@ -1,28 +1,7 @@
 import React from 'react';
+import Candidate from './Candidate';
+import Details from './Details';
 import './styles.css';
-
-const Candidate = ({ candidate, setCandidateId }) =>
-  <div
-    className="candidate-name"
-    onClick={() => {
-      setCandidateId(candidate.id);
-    }}
-  >
-    {candidate.name}
-  </div>;
-
-const Details = ({ candidate }) =>
-  <div>
-    <div>
-      {candidate.name}
-    </div>
-    <div>
-      {candidate.phoneNumber}
-    </div>
-    <div>
-      {candidate.yearsExperience}
-    </div>
-  </div>;
 
 class Candidates extends React.Component {
   constructor() {
