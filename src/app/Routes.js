@@ -8,6 +8,7 @@ import Positions from './Positions';
 import RecruitmentDashboard from './RecruitmentDashboard';
 import TakeTest from './TakeTest';
 import TrainingPaths from './TrainingPaths';
+import StartTest from './TakeTest/startTest';
 
 const Routes = () =>
   <div>
@@ -18,6 +19,7 @@ const Routes = () =>
     <Route path={'/recruitment-dashboard'} component={RecruitmentDashboard} />
     <Route path={'/training-paths'} component={TrainingPaths} />
     <Route path={'/take-test'} component={TakeTest} />
+    <Route path={'/startTest'} component={StartTest} />
     <Route path={'/'} exact component={App} />
   </div>;
 
