@@ -1,0 +1,28 @@
+{
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Fox",
+      "phoneNumber": "0712142512",
+      "yearsExperience": 10,
+      "position": "coach",
+      "department": "Java"
+    },
+    {
+      "id": 2,
+      "name": "Gigel",
+      "phoneNumber": "0712732512",
+      "yearsExperience": 3,
+      "position": "dev",
+      "department": ".Net"
+    },
+    {
+      "id": 3,
+      "name": "Paula",
+      "phoneNumber": "0754142512",
+      "yearsExperience": 5,
+      "position": "manager",
+      "department": "Java"
+    }
+  ]
+}

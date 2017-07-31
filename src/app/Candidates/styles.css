@@ -1,0 +1,20 @@
+.candidates-list {
+  text-align: center;
+  order: 1;
+}
+
+.candidate-name {
+  color: rebeccapurple;
+  font-weight: bold;
+}
+
+.candidates {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.candidate-details {
+  order: 2;
+}
