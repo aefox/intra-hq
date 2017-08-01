@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Route } from 'react-router-dom';
 import App from './App';
 import Candidates from './Candidates';
@@ -9,7 +9,6 @@ import RecruitmentDashboard from './RecruitmentDashboard';
 import TakeTest from './TakeTest';
 import TrainingPaths from './TrainingPaths';
 import TestDefinition from './TehnicalTest/TestDefinition';
-import QuestionCategory from './TehnicalTest/TestDefinition/QuestionCategory';
 
 const Routes = () =>
   <div>
