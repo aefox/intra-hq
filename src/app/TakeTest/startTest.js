@@ -34,15 +34,17 @@ class Question extends React.Component {
 }
 
 class StartTest extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      candidateName: localStorage.getItem('candidateName'),
-      testType: localStorage.getItem('testType'),
       currentIndex: 0,
       displayStartStyle: showStyle,
       displayQuestionStyle: hiddenStyle
     };
+  }
+
+  getQuestions() {
+    return this.props.location.questions;
   }
 
   showQuestion() {
@@ -53,31 +55,22 @@ class StartTest extends React.Component {
   }
 
   nextQuestion() {
-    if (
-      this.state.currentIndex ===
-      QUESTIONS.get(this.state.testType).length - 1
-    ) {
+    if (this.state.currentIndex === this.getQuestions().length - 1) {
       this.setState({ displayQuestionStyle: hiddenStyle });
     } else {
-      //debugger;
       const x = this.state.currentIndex + 1;
       this.setState({ currentIndex: x });
-      console.log(
-        x +
-          '@' +
-          this.state.currentIndex +
-          '@' +
-          QUESTIONS.get(this.state.testType).length
-      );
     }
   }
+
+  reviewQuestions() {}
 
   render() {
     return (
       <div>
-        CandidateName: {this.state.candidateName}
+        CandidateName: {this.props.location.candidateName}
         <br />
-        TestType: {this.state.testType}
+        TestType: {this.props.location.testType}
         <br />
         <button
           type="submit"
@@ -88,9 +81,7 @@ class StartTest extends React.Component {
         </button>
         <div style={this.state.displayQuestionStyle}>
           <Question
-            question={
-              QUESTIONS.get(this.state.testType)[this.state.currentIndex]
-            }
+            question={this.getQuestions()[this.state.currentIndex]}
             currentIndex={this.state.currentIndex}
           />
         </div>
@@ -106,38 +97,12 @@ class StartTest extends React.Component {
           style={this.state.displayQuestionStyle}
           onClick={this.reviewQuestions.bind(this)}
         >
-          Review Question
+          Review Questions
         </button>
       </div>
     );
   }
 }
-const QUESTIONS = new Map([
-  [
-    'Java-Junior',
-    [
-      { question: 'jjQuestion1', answer: 'jjAnswer1' },
-      { question: 'jjQuestion2', answer: 'jjAnswer2' },
-      { question: 'jjQuestion3', answer: 'jjAnswer3' }
-    ]
-  ],
-  [
-    'Java-Medior',
-    [
-      { question: 'jmQuestion1', answer: 'jmAnswer1' },
-      { question: 'jmQuestion2', answer: 'jmAnswer2' },
-      { question: 'jmQuestion3', answer: 'jmAnswer3' }
-    ]
-  ],
-  [
-    'Java-Senior',
-    [
-      { question: 'jsQuestion1', answer: 'jsAnswer1' },
-      { question: 'jsQuestion2', answer: 'jsAnswer2' },
-      { question: 'jsQuestion3', answer: 'jsAnswer3' }
-    ]
-  ]
-]);
 
 const hiddenStyle = {
   display: 'none'
