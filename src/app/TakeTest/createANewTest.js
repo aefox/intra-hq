@@ -19,7 +19,11 @@ class CreateANewTest extends React.Component {
   }
 
   getTestTypes() {
-    return Array.from(this.props.questions.keys());
+    return Object.keys(this.props.questions.testTypes);
+  }
+
+  getQuestionsByTestType(_testType) {
+    return this.props.questions.testTypes[_testType].questions;
   }
 
   render() {
@@ -54,7 +58,7 @@ class CreateANewTest extends React.Component {
               pathname: '/startTest',
               candidateName: this.state.candidateName,
               testType: this.state.testType,
-              questions: this.props.questions.get(this.state.testType)
+              questions: this.getQuestionsByTestType(this.state.testType)
             }}
           >
             Create a New Test
