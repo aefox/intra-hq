@@ -19,7 +19,7 @@ class StartTest extends React.Component {
               questions: this.props.location.questions
             }}
           >
-            Start Test
+            Start test
           </Link>
         </button>
       </div>

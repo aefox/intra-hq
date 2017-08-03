@@ -6,7 +6,8 @@ class ShowQuestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      providedAnswers: Array(this.getQuestions().length).fill(' ')
     };
   }
 
@@ -24,7 +25,19 @@ class ShowQuestions extends React.Component {
     return this.state.currentIndex === this.getQuestions().length;
   }
 
-  reviewQuestions() {}
+  providedAnswer(answer) {
+    const _providedAnswers = this.state.providedAnswers.splice(0);
+    _providedAnswers[this.state.currentIndex] = answer;
+    this.setState({ providedAnswers: _providedAnswers });
+  }
+
+  reviewQuestions() {
+    console.log(this.state.providedAnswers);
+  }
+
+  handleDone() {
+    console.log('Done' + this.state.providedAnswers);
+  }
 
   render() {
     let currentQuestion = null;
@@ -32,13 +45,14 @@ class ShowQuestions extends React.Component {
     if (!this.isLastQuestion()) {
       currentQuestion = (
         <Question
-          question={this.getQuestions()[this.state.currentIndex]}
-          currentIndex={this.state.currentIndex}
+          question={this.getQuestions()[this.state.currentIndex].question}
+          answer={this.state.providedAnswers[this.state.currentIndex]}
+          useProvidedAnswer={this.providedAnswer.bind(this)}
         />
       );
       buttonNextQuestion = (
         <button type="submit" onClick={this.nextQuestion.bind(this)}>
-          Next Question
+          Next question
         </button>
       );
     }
@@ -52,7 +66,10 @@ class ShowQuestions extends React.Component {
         {currentQuestion}
         {buttonNextQuestion}
         <button type="submit" onClick={this.reviewQuestions.bind(this)}>
-          Review Questions
+          Review questions
+        </button>
+        <button type="submit" onClick={this.handleDone.bind(this)}>
+          Submit test
         </button>
       </div>
     );
