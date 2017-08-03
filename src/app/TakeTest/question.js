@@ -10,14 +10,8 @@ class Question extends React.Component {
 
   updateProvidedAnswer(e) {
     this.setState({ providedAnswer: e.target.value });
-    let providedAnswers =
-      localStorage.getItem('providedAnswers') || new Map([]);
-
-    localStorage.setItem('providedAnswers', {
-      '': this.props.currentIndex,
-      '': this.state.providedAnswer
-    });
   }
+
   render() {
     return (
       <div>

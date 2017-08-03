@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TakeTestHeader from './header';
 
 class StartTest extends React.Component {
   render() {
     return (
       <div>
-        CandidateName: {this.props.location.candidateName}
-        <br />
-        TestType: {this.props.location.testType}
-        <br />
+        <TakeTestHeader
+          candidateName={this.props.location.candidateName}
+          testType={this.props.location.testType}
+        />
         <button>
           <Link
             to={{

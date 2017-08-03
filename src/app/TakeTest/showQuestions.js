@@ -1,4 +1,5 @@
 import React from 'react';
+import TakeTestHeader from './header';
 import Question from './question';
 
 class ShowQuestions extends React.Component {
@@ -20,7 +21,7 @@ class ShowQuestions extends React.Component {
   }
 
   isLastQuestion() {
-    return this.state.currentIndex === this.getQuestions().length - 1;
+    return this.state.currentIndex === this.getQuestions().length;
   }
 
   reviewQuestions() {}
@@ -44,10 +45,10 @@ class ShowQuestions extends React.Component {
 
     return (
       <div>
-        CandidateName: {this.props.location.candidateName}
-        <br />
-        TestType: {this.props.location.testType}
-        <br />
+        <TakeTestHeader
+          candidateName={this.props.location.candidateName}
+          testType={this.props.location.testType}
+        />
         {currentQuestion}
         {buttonNextQuestion}
         <button type="submit" onClick={this.reviewQuestions.bind(this)}>
