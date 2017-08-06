@@ -1,0 +1,47 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "prettier",
+    "airbnb"
+  ],  
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    // "prettier/prettier": "error"
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+	"indent": [2, 2],
+    "react/prop-types": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/require-default-props": [
+      "off"
+    ],
+    "react/jsx-closing-bracket-location": [
+      "off",
+      "props-aligned"
+    ],
+    "react/no-unused-prop-types": [
+      "off"
+    ]
+  }
+}

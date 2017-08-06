@@ -1,0 +1,39 @@
+.dashboard-table {
+  display: flex;
+  margin: 10px;
+}
+
+.dashboard-column {
+  border: 1px solid gray;
+}
+
+.name-column {
+  width: 200px;
+}
+
+.dashboard-header {
+  border-bottom: 1px solid gray;
+  margin: 0px;
+  padding: 5px;
+  background: lightblue;
+  font-weight: bold;
+}
+
+.dashboard-cell {
+  padding: 5px;
+  border-bottom: 1px solid gray;
+  background: lightcyan;
+}
+
+.dashboard-list__namelink {
+  cursor: pointer;
+  color: blue;
+  text-decoration: none;
+}
+
+.dashboard-list__editlink {
+  cursor: pointer;
+  color: green;
+  margin-left: 5px;
+  text-decoration: none;
+}
