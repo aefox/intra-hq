@@ -1,0 +1,37 @@
+.stages {
+  display: flex;
+  flex-direction: row;
+}
+
+.stage-column {
+  flex-grow: 1;
+  border: 1px solid gray;
+}
+
+.stage-column__header {
+  border-bottom: 1px solid gray;
+  margin: 0px;
+  padding: 5px;
+  background: lightblue;
+  font-weight: bold;
+}
+
+.stage-available-candidates {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.stage-move-next {
+  color: red;
+  cursor: pointer;
+  border: 0px;
+  background: transparent;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.stage-column__cell {
+  padding: 5px;
+  background: lightcyan;
+}
