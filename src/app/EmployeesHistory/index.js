@@ -1,10 +1,14 @@
 import React from 'react';
+import EmployeeDetails from './Components/employeeDetails';
+import EmployeeSummary from './Components/employeeSummary';
+import './EmployeeHistory.css';
 
-const Mock = ({ match }) =>
+const EmployeeHistory = () =>
   <div>
-    <p>
-      {match.url}
-    </p>
+    <EmployeeSummary />
+    <br />
+    <br />
+    <EmployeeDetails />
   </div>;
 
-export default Mock;
+export default EmployeeHistory;
