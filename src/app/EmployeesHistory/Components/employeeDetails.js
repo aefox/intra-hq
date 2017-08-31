@@ -1,6 +1,6 @@
 import React from 'react';
-import ProjectsHistoryDetails from './projectsHistoryDetails';
-import Evaluations from './evaluations';
+import ProjectsHistoryDetails from './ProjectsHistoryDetails';
+import Evaluations from './Evaluations';
 
 const EmployeeDetails = () => {
   return (

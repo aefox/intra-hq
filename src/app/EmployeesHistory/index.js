@@ -1,6 +1,6 @@
 import React from 'react';
-import EmployeeDetails from './Components/employeeDetails';
-import EmployeeSummary from './Components/employeeSummary';
+import EmployeeDetails from './Components/EmployeeDetails';
+import EmployeeSummary from './Components/EmployeeSummary';
 import './EmployeeHistory.css';
 
 const EmployeeHistory = () =>

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectsTimeline from './projectsTimeline';
+import ProjectsTimeline from './ProjectsTimeline';
 import EmployeeHistoryProvider from '../employeeHistoryProvider';
 
 const ProjectsHistoryDetails = props => {

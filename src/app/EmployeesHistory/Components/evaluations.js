@@ -1,5 +1,5 @@
 import React from 'react';
-import EvaluationItemsList from './evaluationItemsList';
+import EvaluationItemsList from './EvaluationItemsList';
 import EmployeeHistoryProvider from '../employeeHistoryProvider';
 
 const Evaluations = props => {
