@@ -6,7 +6,7 @@ import Responses from '../Responses';
 
 const ApprovedQuestions = ({ props, match }) => {
   const avg = rates => {
-    if (rates.length == 0) {
+    if (rates.length === 0) {
       return 0;
     }
     var sum = rates.reduce(function(a, b) {

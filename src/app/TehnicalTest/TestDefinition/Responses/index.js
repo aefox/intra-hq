@@ -4,7 +4,7 @@ import { questions } from '../../TestDefinition';
 
 const Responses = ({ props, match }) => {
   let question = questions.filter(
-    question => question.id == match.params.id
+    question => question.id === match.params.id
   )[0];
   return (
     <div>

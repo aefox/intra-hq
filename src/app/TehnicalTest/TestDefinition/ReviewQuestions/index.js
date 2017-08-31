@@ -45,7 +45,7 @@ class ReviewQuestions extends React.Component {
   };
 
   handleRateChange = event => {
-    this.setState({ rate: parseInt(event.target.value) });
+    this.setState({ rate: parseInt(event.target.value, 10) });
   };
 
   handleFeedbackChange = event => {
