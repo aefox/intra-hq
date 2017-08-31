@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import FilterDropdown from './FilterDropdown';
 
 export class EmployeeFilter extends React.Component {

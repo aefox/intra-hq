@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 export class FilterDropdown extends React.Component {
   constructor(props, context) {
@@ -19,13 +19,14 @@ export class FilterDropdown extends React.Component {
   render() {
     let criteria = this.state.criteria;
     let elements = this.state.elements;
+    debugger;
     return (
       <select onChange={this.filterByCriteria}>
         <option value="empty">
           Filter by {criteria}
         </option>
         {elements.map(filter =>
-          <option value={filter}>
+          <option key={filter} value={filter}>
             {filter}
           </option>
         )}

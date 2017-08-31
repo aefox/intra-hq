@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 export class Employee extends React.Component {
   constructor(props, context) {

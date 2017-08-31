@@ -5,6 +5,7 @@ import EmployeeFilter from './EmployeeFilter';
 export class EmployeesList extends React.Component {
   constructor(props, context) {
     super(props, context);
+    debugger;
     this.state = {
       employees: props.employees,
       employeesFiltered: props.employeesFiltered
@@ -32,15 +33,14 @@ export class EmployeesList extends React.Component {
 
   filterByCriteria(criteria, valueToFilter) {
     let employeesFiltered = [];
-    employeesFiltered = this.state.employees.filter(function(employee) {
-      if (employee[criteria] === valueToFilter) {
-        return employee;
-      }
+    employeesFiltered = this.state.employees.filter(
+      employee => employee[criteria] === valueToFilter
+    );
+    this.setState({
+      employeesFiltered: employeesFiltered
     });
     debugger;
-    this.setState = {
-      employeesFiltered: employeesFiltered
-    };
+    this.render();
   }
 
   render() {
@@ -79,6 +79,12 @@ export class EmployeesList extends React.Component {
             )}
           </tbody>
         </table>
+        {/* 
+        <Pagination items={this.state.employees} currentPages={this.state.currentPages}
+          numberOfItemsPerPage={this.state.numberOfItemsPerPage}
+          changeCurrentPage={this.changeCurrentPage}
+          changeNumberOfElements={this.changeNumberOfElements}
+        /> */}
       </div>
     );
   }
