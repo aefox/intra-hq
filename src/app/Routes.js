@@ -8,8 +8,9 @@ import Positions from './Positions';
 import RecruitmentDashboard from './RecruitmentDashboard';
 import TakeTest from './TakeTest';
 import TrainingPaths from './TrainingPaths';
+import AddTrainingPath from './TrainingPaths/AddTrainingPath';
 
-const Routes = () =>
+const Routes = () => (
   <div>
     <Route path={'/candidates'} component={Candidates} />
     <Route path={'/employees-history'} component={EmployeesHistory} />
@@ -17,8 +18,10 @@ const Routes = () =>
     <Route path={'/positions'} component={Positions} />
     <Route path={'/recruitment-dashboard'} component={RecruitmentDashboard} />
     <Route path={'/training-paths'} component={TrainingPaths} />
+    <Route path={'/add-path'} component={AddTrainingPath} />
     <Route path={'/take-test'} component={TakeTest} />
     <Route path={'/'} exact component={App} />
-  </div>;
+  </div>
+);
 
 export default Routes;

@@ -1,0 +1,27 @@
+{
+  "paths": [
+    {
+      "name": ".NET",
+      "topics": [
+        "JS",
+        "REACT",
+        "REST",
+        "SQL"
+      ],
+      "id": 2
+    },
+    {
+      "name": "Java",
+      "topics": [
+        "SQL",
+        "REST",
+        "JS"
+      ],
+      "id": 3
+    }
+  ],
+  "topics": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

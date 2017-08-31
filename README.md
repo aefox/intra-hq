@@ -17,4 +17,5 @@ From the command line run the following:
 - `yarn install` (this will download all dependencies)
 - `yarn start` (this will start the webpack development server with hot reload)
 - `yarn run storybook` (this will start a separate webpack server for storybook, also with hot reloading)
+- `yarn run start-db` (this will start a json-server for working with the database on port 9000)
 
