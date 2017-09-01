@@ -1,0 +1,53 @@
+{
+  "paths": [
+    {
+      "name": "java",
+      "topics": [
+        "NODE.JS",
+        "REACT"
+      ],
+      "id": 3
+    },
+    {
+      "name": "gfgh",
+      "topics": [
+        "NODE.JS"
+      ],
+      "id": 4
+    },
+    {
+      "name": "sdvsdsd",
+      "topics": [
+        "REST",
+        "JS"
+      ],
+      "id": 5
+    },
+    {
+      "name": "name",
+      "topics": [
+        "NODE.JS",
+        "REACT"
+      ],
+      "id": 6
+    },
+    {
+      "name": "dgfd",
+      "topics": [
+        "NODE.JS"
+      ],
+      "id": 7
+    },
+    {
+      "name": "newpath",
+      "topics": [
+        "REST"
+      ],
+      "id": 8
+    }
+  ],
+  "topics": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
