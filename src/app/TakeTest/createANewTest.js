@@ -6,6 +6,7 @@ class CreateANewTest extends React.Component {
     super(props);
     this.state = {
       candidateName: '',
+      indents: [],
       testType: this.getTestTypes()[0]
     };
   }
@@ -25,18 +26,18 @@ class CreateANewTest extends React.Component {
   getQuestionsByTestType(_testType) {
     return this.props.questions.testTypes[_testType].questions;
   }
-
-  render() {
-    var testTypes = this.getTestTypes();
-    var indents = [];
+  componentWillMount() {
+    var testTypes = this.getTestTypes(); // remove from here
     for (var i = 0; i < testTypes.length; i++) {
-      indents.push(
+      this.state.indents.push(
         <option value={testTypes[i]} key={testTypes[i]}>
           {testTypes[i]}
         </option>
       );
     }
+  }
 
+  render() {
     return (
       <div>
         <div>
@@ -48,7 +49,7 @@ class CreateANewTest extends React.Component {
           />
           <div>
             <select onChange={this.updateTestType.bind(this)}>
-              {indents}
+              {this.state.indents}
             </select>
           </div>
         </div>

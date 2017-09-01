@@ -32,7 +32,7 @@ class ShowQuestions extends React.Component {
   }
 
   reviewQuestions() {
-    console.log(this.state.providedAnswers);
+    return this.state.providedAnswers;
   }
 
   handleDone() {
