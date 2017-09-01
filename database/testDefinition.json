@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "state": "review",
+      "category": "jj",
+      "title": "q1112",
+      "feedbacks": [],
+      "rates": [
+        2.5,
+        3
+      ],
+      "responses": [
+        "rasp11",
+        "rasp12",
+        "rasp13"
+      ]
+    },
+    {
+      "id": 2,
+      "state": "approved",
+      "category": "jj",
+      "title": "q2",
+      "feedbacks": [],
+      "rates": [],
+      "numberOfAppearence": 2,
+      "numberOfRights": 1,
+      "responses": [
+        "rasp21",
+        "rasp22",
+        "rasp23"
+      ]
+    },
+    {
+      "id": 3,
+      "state": "review",
+      "category": "jj",
+      "title": "q3",
+      "feedbacks": [],
+      "rates": [],
+      "responses": [
+        "rasp31",
+        "rasp32",
+        "rasp33"
+      ]
+    },
+    {
+      "id": 4,
+      "state": "review",
+      "category": "js",
+      "title": "q4",
+      "feedbacks": [],
+      "rates": [],
+      "responses": [
+        "rasp41",
+        "rasp42",
+        "rasp43"
+      ]
+    }
+  ]
+}
