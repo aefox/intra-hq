@@ -3,7 +3,6 @@ import { v4 } from 'uuid';
 import Modal from 'react-modal';
 import { Link, Route } from 'react-router-dom';
 import Responses from '../Responses';
-import { questions } from '../../TestDefinition';
 
 const customStyles = {
   content: {
@@ -21,7 +20,8 @@ class ReviewQuestions extends React.Component {
     modalIsOpen: false,
     rate: 1,
     feedback: '',
-    question: null
+    question: null,
+    questions: []
   };
 
   requestCloseFn = () => {
@@ -52,6 +52,25 @@ class ReviewQuestions extends React.Component {
     this.setState({ feedback: event.target.value });
   };
 
+  componentWillMount() {
+    let _this = this;
+    console.log(
+      'http://localhost:3001/questions?category=' +
+        this.props.match.params.questionCategory +
+        '&state=review'
+    );
+    fetch(
+      'http://localhost:3001/questions?category=' +
+        this.props.match.params.questionCategory +
+        '&state=review'
+    ).then(function(response) {
+      response.json().then(function(data) {
+        let questions = data;
+        _this.setState({ questions });
+      });
+    });
+  }
+
   render() {
     const { match } = this.props;
 
@@ -69,20 +88,14 @@ class ReviewQuestions extends React.Component {
       <div>
         <div>
           <div>
-            {questions
-              .filter(
-                question =>
-                  question.state === 'review' &&
-                  question.category === match.params.questionCategory
-              )
-              .map(question =>
-                <li key={v4()}>
-                  <Link to={`${match.url}/responses/${question.id}`}>
-                    {question.title}
-                  </Link>, {question.feedbacks.length}, {avg(question.rates)},{' '}
-                  <button onClick={this.rate(question)}>Rate</button>
-                </li>
-              )}
+            {this.state.questions.map(question =>
+              <li key={v4()}>
+                <Link to={`${match.url}/responses/${question.id}`}>
+                  {question.title}
+                </Link>, {question.feedbacks.length}, {avg(question.rates)},{' '}
+                <button onClick={this.rate(question)}>Rate</button>
+              </li>
+            )}
           </div>
 
           <Route path={`${match.url}/responses/:id`} component={Responses} />

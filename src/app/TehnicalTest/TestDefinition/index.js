@@ -43,52 +43,73 @@ export const questions = [
   }
 ];
 
-const TestDefinition = ({ props, match }) => {
-  const filterByCategory = category => {
-    return questions.filter(question => question.category === category);
+class TestDefinition extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { questions: [] };
+  }
+
+  filterByCategory = category => {
+    return this.state.questions.filter(
+      question => question.category === category
+    );
   };
 
-  const getTotalNumberOfQuestionsByCategory = category => {
-    return filterByCategory(category).length;
+  getTotalNumberOfQuestionsByCategory = category => {
+    return this.filterByCategory(category).length;
   };
 
-  const getTotalNumberOfQuestionsByCategoryAndState = (category, state) => {
-    return filterByCategory(category).filter(
+  getTotalNumberOfQuestionsByCategoryAndState = (category, state) => {
+    return this.filterByCategory(category).filter(
       question => question.state === state
     ).length;
   };
 
-  const getCategoryDetails = category => {
-    return `${getTotalNumberOfQuestionsByCategory(
+  getCategoryDetails = category => {
+    return `${this.getTotalNumberOfQuestionsByCategory(
       category
-    )} | ${getTotalNumberOfQuestionsByCategoryAndState(
+    )} | ${this.getTotalNumberOfQuestionsByCategoryAndState(
       category,
       'review'
-    )} | ${getTotalNumberOfQuestionsByCategoryAndState(category, 'approved')}`;
+    )} | ${this.getTotalNumberOfQuestionsByCategoryAndState(
+      category,
+      'approved'
+    )}`;
   };
 
-  return (
-    <div>
+  componentWillMount() {
+    let _this = this;
+    fetch('http://localhost:3001/questions').then(function(response) {
+      response.json().then(function(data) {
+        let questions = data;
+        _this.setState({ questions });
+      });
+    });
+  }
+  render() {
+    return (
       <div>
-        <Link to={`${match.url}/jj/review`}>Java Junior</Link>{' '}
-        {getCategoryDetails('jj')} <br />
-        <Link to={`${match.url}/jm/review`}>Java Medior</Link>{' '}
-        {getCategoryDetails('jm')} <br />
-        <Link to={`${match.url}/js/review`}>Java Senior</Link>{' '}
-        {getCategoryDetails('js')} <br />
-        <Link to={`${match.url}/nj/review`}>.Net Junior</Link>{' '}
-        {getCategoryDetails('nj')} <br />
-        <Link to={`${match.url}/nm/review`}>.Net Medior</Link>{' '}
-        {getCategoryDetails('nm')} <br />
-        <Link to={`${match.url}/ns/review`}>.Net Senior</Link>{' '}
-        {getCategoryDetails('ns')} <br />
+        <div>
+          <Link to={`${this.props.match.url}/jj`}>Java Junior</Link>{' '}
+          {this.getCategoryDetails('jj')} <br />
+          <Link to={`${this.props.match.url}/jm`}>Java Medior</Link>{' '}
+          {this.getCategoryDetails('jm')} <br />
+          <Link to={`${this.props.match.url}/js`}>Java Senior</Link>{' '}
+          {this.getCategoryDetails('js')} <br />
+          <Link to={`${this.props.match.url}/nj`}>.Net Junior</Link>{' '}
+          {this.getCategoryDetails('nj')} <br />
+          <Link to={`${this.props.match.url}/nm`}>.Net Medior</Link>{' '}
+          {this.getCategoryDetails('nm')} <br />
+          <Link to={`${this.props.match.url}/ns`}>.Net Senior</Link>{' '}
+          {this.getCategoryDetails('ns')} <br />
+        </div>
+        <Route
+          path={`${this.props.match.url}/:questionCategory`}
+          component={QuestionCategory}
+        />
       </div>
-      <Route
-        path={`${match.url}/:questionCategory`}
-        component={QuestionCategory}
-      />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default TestDefinition;
