@@ -2,42 +2,32 @@ import React from 'react';
 import CreateANewTest from './createANewTest';
 
 class TakeTestHome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: []
+    };
+  }
+  componentWillMount() {
+    fetch('http://localhost:9000/testTypes')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ questions: data });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
   render() {
     return (
       <div>
-        <CreateANewTest questions={QUESTIONS_BY_TEST_TYPES} />
+        <CreateANewTest questions={this.state.questions} />
       </div>
     );
   }
 }
-
-const QUESTIONS_BY_TEST_TYPES = {
-  testTypes: {
-    'Java-Junior': {
-      questions: [
-        { question: 'jjQuestion0', answer: 'jjAnswer0' },
-        { question: 'jjQuestion1', answer: 'jjAnswer1' },
-        { question: 'jjQuestion2', answer: 'jjAnswer2' },
-        { question: 'jjQuestion3', answer: 'jjAnswer3' }
-      ]
-    },
-    'Java-Medior': {
-      questions: [
-        { question: 'jmQuestion0', answer: 'jmAnswer0' },
-        { question: 'jmQuestion1', answer: 'jmAnswer1' },
-        { question: 'jmQuestion2', answer: 'jmAnswer2' },
-        { question: 'jmQuestion3', answer: 'jmAnswer3' }
-      ]
-    },
-    'Java-Senior': {
-      questions: [
-        { question: 'jsQuestion0', answer: 'jsAnswer0' },
-        { question: 'jsQuestion1', answer: 'jsAnswer1' },
-        { question: 'jsQuestion2', answer: 'jsAnswer2' },
-        { question: 'jsQuestion3', answer: 'jsAnswer3' }
-      ]
-    }
-  }
-};
 
 export default TakeTestHome;

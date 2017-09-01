@@ -1,0 +1,64 @@
+{
+  "testTypes": {
+    "Java-Junior": {
+      "questions": [
+        {
+          "question": "jjQuestion0",
+          "answer": "jjAnswer0"
+        },
+        {
+          "question": "jjQuestion1",
+          "answer": "jjAnswer1"
+        },
+        {
+          "question": "jjQuestion2",
+          "answer": "jjAnswer2"
+        },
+        {
+          "question": "jjQuestion3",
+          "answer": "jjAnswer3"
+        }
+      ]
+    },
+    "Java-Medior": {
+      "questions": [
+        {
+          "question": "jmQuestion0",
+          "answer": "jmAnswer0"
+        },
+        {
+          "question": "jmQuestion1",
+          "answer": "jmAnswer1"
+        },
+        {
+          "question": "jmQuestion2",
+          "answer": "jmAnswer2"
+        },
+        {
+          "question": "jmQuestion3",
+          "answer": "jmAnswer3"
+        }
+      ]
+    },
+    "Java-Senior": {
+      "questions": [
+        {
+          "question": "jsQuestion0",
+          "answer": "jsAnswer0"
+        },
+        {
+          "question": "jsQuestion1",
+          "answer": "jsAnswer1"
+        },
+        {
+          "question": "jsQuestion2",
+          "answer": "jsAnswer2"
+        },
+        {
+          "question": "jsQuestion3",
+          "answer": "jsAnswer3"
+        }
+      ]
+    }
+  }
+}

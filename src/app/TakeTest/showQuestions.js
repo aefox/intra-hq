@@ -1,6 +1,7 @@
 import React from 'react';
 import TakeTestHeader from './header';
 import Question from './question';
+import ReviewQuestions from './reviewQuestions';
 
 class ShowQuestions extends React.Component {
   constructor(props) {
@@ -56,7 +57,6 @@ class ShowQuestions extends React.Component {
         </button>
       );
     }
-
     return (
       <div>
         <TakeTestHeader
@@ -68,6 +68,13 @@ class ShowQuestions extends React.Component {
         <button type="submit" onClick={this.reviewQuestions.bind(this)}>
           Review questions
         </button>
+
+        <div>
+          <ReviewQuestions
+            providedAnswers={this.state.providedAnswers}
+            questions={this.getQuestions().slice(0, this.state.currentIndex)}
+          />
+        </div>
         <button type="submit" onClick={this.handleDone.bind(this)}>
           Submit test
         </button>

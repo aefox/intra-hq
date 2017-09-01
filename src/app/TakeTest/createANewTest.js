@@ -7,7 +7,7 @@ class CreateANewTest extends React.Component {
     this.state = {
       candidateName: '',
       indents: [],
-      testType: this.getTestTypes()[0]
+      testType: this.getTestTypes(props)[0]
     };
   }
 
@@ -19,15 +19,28 @@ class CreateANewTest extends React.Component {
     this.setState({ candidateName: e.target.value });
   }
 
-  getTestTypes() {
-    return Object.keys(this.props.questions.testTypes);
+  getTestTypes(nextProps) {
+    return Object.keys(nextProps.questions);
   }
 
   getQuestionsByTestType(_testType) {
-    return this.props.questions.testTypes[_testType].questions;
+    if (_testType !== undefined)
+      return this.props.questions[_testType].questions;
+    else {
+      return;
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setIndents(nextProps);
+    this.setState({ testType: this.getTestTypes(nextProps)[0] });
   }
   componentWillMount() {
-    var testTypes = this.getTestTypes(); // remove from here
+    this.setState({ testType: this.getTestTypes(this.props)[0] });
+  }
+
+  setIndents(nextProps) {
+    var testTypes = this.getTestTypes(nextProps); // remove from here
     for (var i = 0; i < testTypes.length; i++) {
       this.state.indents.push(
         <option value={testTypes[i]} key={testTypes[i]}>
@@ -38,6 +51,7 @@ class CreateANewTest extends React.Component {
   }
 
   render() {
+    console.log(this.props.questions);
     return (
       <div>
         <div>
