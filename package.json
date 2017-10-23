@@ -19,6 +19,7 @@
 		"prettier": "^1.7.4"
 	},
 	"scripts": {
+		"jsonserver": "json-server db.json --watch --port 3005",
 		"precommit": "lint-staged",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
