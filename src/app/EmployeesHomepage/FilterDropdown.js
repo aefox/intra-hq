@@ -4,11 +4,19 @@ export class FilterDropdown extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      elements: props.elements,
+      elements: props.elements ? props.elements : [],
       criteria: props.criteria,
       filterByCriteria: props.filterByCriteria
     };
     this.filterByCriteria = this.filterByCriteria.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      elements: props.elements,
+      criteria: props.criteria,
+      filterByCriteria: props.filterByCriteria
+    });
   }
 
   filterByCriteria(e) {
@@ -19,7 +27,6 @@ export class FilterDropdown extends React.Component {
   render() {
     let criteria = this.state.criteria;
     let elements = this.state.elements;
-    debugger;
     return (
       <select onChange={this.filterByCriteria}>
         <option value="empty">

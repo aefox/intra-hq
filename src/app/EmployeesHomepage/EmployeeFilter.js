@@ -5,7 +5,7 @@ export class EmployeeFilter extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      filters: props.filters
+      filters: props.filters ? props.filters : []
     };
 
     this.filterByCriteria = this.filterByCriteria.bind(this);
@@ -16,7 +16,7 @@ export class EmployeeFilter extends React.Component {
   }
 
   render() {
-    let filters = this.state.filters;
+    const filters = this.props.filters;
     return (
       <tr>
         <td>
