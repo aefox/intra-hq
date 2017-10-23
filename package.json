@@ -24,7 +24,8 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
 		"test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"start-db": "json-server --watch ./database/db.json --port 9000"
 	},
 	"lint-staged": {
 		"src/**/*.{js,jsx,json,css}": [
