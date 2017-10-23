@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Question from './question';
+import './style.css';
 
 class ReviewQuestions extends Component {
   constructor(props) {
@@ -14,7 +15,12 @@ class ReviewQuestions extends Component {
     const _providedAnswers = this.state.providedAnswers.splice(0);
     _providedAnswers[this.state.currentIndex] = answer;
     this.setState({ providedAnswers: _providedAnswers });
+    this.props.onAnswersChange(_providedAnswers, false);
   }
+
+  saveChanges = () => {
+    this.props.onAnswersChange(this.state.providedAnswers, true);
+  };
 
   getReviewedItems() {
     let reviewedItems = [];
@@ -31,9 +37,6 @@ class ReviewQuestions extends Component {
 
     return reviewedItems;
   }
-  shouldComponentUpdate(nextProps) {
-    return true;
-  }
   componentWillReceiveProps(nextProps) {
     this.setState({
       providedAnswers: nextProps.providedAnswers,
@@ -42,8 +45,15 @@ class ReviewQuestions extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={this.props.shouldDisplay ? '' : 'hidden'}>
+        <br />
         {this.getReviewedItems()}
+        <br />
+        <div>
+          <button type="submit" onClick={this.saveChanges.bind(this)}>
+            Save Changes
+          </button>
+        </div>
       </div>
     );
   }

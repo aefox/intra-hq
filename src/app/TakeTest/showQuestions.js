@@ -3,12 +3,13 @@ import TakeTestHeader from './header';
 import Question from './question';
 import ReviewQuestions from './reviewQuestions';
 
-class ShowQuestions extends React.Component {
+export default class ShowQuestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentIndex: 0,
-      providedAnswers: Array(this.getQuestions().length).fill(' ')
+      providedAnswers: Array(this.getQuestions().length).fill(' '),
+      displayReview: false
     };
   }
 
@@ -33,11 +34,21 @@ class ShowQuestions extends React.Component {
   }
 
   reviewQuestions() {
+    this.setState({ displayReview: true });
     return this.state.providedAnswers;
   }
 
+  handleReviewAnsweres = (newAnswers, isSaved) => {
+    this.setState({ _providedAnswers: newAnswers, displayReview: !isSaved });
+  };
+
   handleDone() {
-    console.log('Done' + this.state.providedAnswers);
+    return (
+      <div>
+        Thank You for your answers, your answers will be checked and you will
+        receive an email with the final result!
+      </div>
+    );
   }
 
   render() {
@@ -68,13 +79,15 @@ class ShowQuestions extends React.Component {
         <button type="submit" onClick={this.reviewQuestions.bind(this)}>
           Review questions
         </button>
-
         <div>
           <ReviewQuestions
             providedAnswers={this.state.providedAnswers}
             questions={this.getQuestions().slice(0, this.state.currentIndex)}
+            shouldDisplay={this.state.displayReview}
+            onAnswersChange={this.handleReviewAnsweres}
           />
         </div>
+
         <button type="submit" onClick={this.handleDone.bind(this)}>
           Submit test
         </button>
@@ -82,5 +95,3 @@ class ShowQuestions extends React.Component {
     );
   }
 }
-
-export default ShowQuestions;

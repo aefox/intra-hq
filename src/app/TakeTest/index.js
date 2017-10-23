@@ -9,7 +9,7 @@ class TakeTestHome extends React.Component {
     };
   }
   componentWillMount() {
-    fetch('http://localhost:9000/testTypes')
+    fetch('http://localhost:5006/testTypes')
       .then(response => {
         return response.json();
       })
@@ -23,7 +23,7 @@ class TakeTestHome extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid col-md-12">
         <CreateANewTest questions={this.state.questions} />
       </div>
     );

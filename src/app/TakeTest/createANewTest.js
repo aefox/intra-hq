@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.css';
 
 class CreateANewTest extends React.Component {
   constructor(props) {
@@ -11,12 +12,12 @@ class CreateANewTest extends React.Component {
     };
   }
 
-  updateTestType(e) {
-    this.setState({ testType: e.target.value });
+  updateTestType(value) {
+    this.setState({ testType: value.target.value });
   }
 
-  updateCandidateName(e) {
-    this.setState({ candidateName: e.target.value });
+  updateCandidateName(candidate) {
+    this.setState({ candidateName: candidate.target.value });
   }
 
   getTestTypes(nextProps) {
@@ -53,15 +54,19 @@ class CreateANewTest extends React.Component {
   render() {
     console.log(this.props.questions);
     return (
-      <div>
-        <div>
-          <input
-            type="text"
-            placeholder="Candidate Name"
-            value={this.props.candidateName}
-            onChange={this.updateCandidateName.bind(this)}
-          />
-          <div>
+      <div className="container-fluid col-md-12">
+        <div className="row">
+          <div className="col-md-8 col-offset-2">
+            <label>Write A candidate Name:</label>
+            <input
+              type="text"
+              placeholder="Candidate Name"
+              value={this.props.candidateName}
+              onChange={this.updateCandidateName.bind(this)}
+            />
+          </div>
+          <div className=" row col-md-8 col-offset-2">
+            <label>Select candidate skill test level: </label>
             <select onChange={this.updateTestType.bind(this)}>
               {this.state.indents}
             </select>
