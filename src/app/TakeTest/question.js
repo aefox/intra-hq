@@ -1,9 +1,9 @@
 import React from 'react';
 
 class Question extends React.Component {
-  updateProvidedAnswer(e) {
+  updateProvidedAnswer = e => {
     this.props.useProvidedAnswer(e.target.value);
-  }
+  };
 
   render() {
     return (
@@ -12,7 +12,7 @@ class Question extends React.Component {
         <input
           type="text"
           value={this.props.answer}
-          onChange={this.updateProvidedAnswer.bind(this)}
+          onChange={this.updateProvidedAnswer}
         />
       </div>
     );

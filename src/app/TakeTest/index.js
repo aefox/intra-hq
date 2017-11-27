@@ -1,24 +1,37 @@
 import React from 'react';
 import CreateANewTest from './createANewTest';
+import { createStore } from 'redux';
+import { connect } from 'react-redux';
+import TestApp from './reducers';
+import { fetchQuestions } from './actions';
+
+const defaultState = {
+  questions: []
+};
+const store = createStore(TestApp, defaultState);
 
 class TakeTestHome extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      questions: []
-    };
-  }
+  state = {
+    questions: []
+  };
+
   componentWillMount() {
-    fetch('http://localhost:5006/testTypes')
+    fetch('http://localhost:3000/testTypes')
       .then(response => {
         return response.json();
       })
       .then(data => {
-        this.setState({ questions: data });
+        store.dispatch(fetchQuestions(data));
       })
       .catch(e => {
         console.log(e);
       });
+
+    store.subscribe(() => {
+      this.setState({
+        questions: store.getState()
+      });
+    });
   }
 
   render() {

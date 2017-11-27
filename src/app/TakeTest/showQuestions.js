@@ -4,14 +4,11 @@ import Question from './question';
 import ReviewQuestions from './reviewQuestions';
 
 export default class ShowQuestions extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentIndex: 0,
-      providedAnswers: Array(this.getQuestions().length).fill(' '),
-      displayReview: false
-    };
-  }
+  state = {
+    currentIndex: 0,
+    providedAnswers: Array(this.getQuestions().length).fill(' '),
+    displayReview: false
+  };
 
   getQuestions() {
     return this.props.location.questions;

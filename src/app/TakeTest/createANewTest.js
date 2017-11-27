@@ -3,56 +3,44 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 class CreateANewTest extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      candidateName: '',
-      indents: [],
-      testType: this.getTestTypes(props)[0]
-    };
-  }
+  state = {
+    candidateName: '',
+    testTypes: [],
+    selectedTestType: ''
+  };
 
-  updateTestType(value) {
-    this.setState({ testType: value.target.value });
-  }
+  updateSelectedTestType = e => {
+    this.setState({ selectedTestType: e.target.value });
+  };
 
-  updateCandidateName(candidate) {
-    this.setState({ candidateName: candidate.target.value });
-  }
+  updateCandidateName = e => {
+    this.setState({ candidateName: e.target.value });
+  };
 
-  getTestTypes(nextProps) {
-    return Object.keys(nextProps.questions);
-  }
-
-  getQuestionsByTestType(_testType) {
-    if (_testType !== undefined)
-      return this.props.questions[_testType].questions;
-    else {
-      return;
-    }
-  }
+  getQuestionsByTestType = () => {
+    const selectedType = this.state.selectedTestType;
+    return selectedType ? this.props.questions[selectedType].questions : null;
+  };
 
   componentWillReceiveProps(nextProps) {
-    this.setIndents(nextProps);
-    this.setState({ testType: this.getTestTypes(nextProps)[0] });
-  }
-  componentWillMount() {
-    this.setState({ testType: this.getTestTypes(this.props)[0] });
+    this.setState({ testTypes: Object.keys(nextProps.questions) });
+    this.setState({ selectedTestType: Object.keys(nextProps.questions)[0] });
   }
 
-  setIndents(nextProps) {
-    var testTypes = this.getTestTypes(nextProps); // remove from here
+  setTestTypeOptions = () => {
+    const testTypes = this.state.testTypes;
+    const options = [];
     for (var i = 0; i < testTypes.length; i++) {
-      this.state.indents.push(
+      options.push(
         <option value={testTypes[i]} key={testTypes[i]}>
           {testTypes[i]}
         </option>
       );
     }
-  }
+    return options;
+  };
 
   render() {
-    console.log(this.props.questions);
     return (
       <div className="container-fluid col-md-12">
         <div className="row">
@@ -61,14 +49,14 @@ class CreateANewTest extends React.Component {
             <input
               type="text"
               placeholder="Candidate Name"
-              value={this.props.candidateName}
-              onChange={this.updateCandidateName.bind(this)}
+              value={this.state.candidateName}
+              onChange={this.updateCandidateName}
             />
           </div>
           <div className=" row col-md-8 col-offset-2">
             <label>Select candidate skill test level: </label>
-            <select onChange={this.updateTestType.bind(this)}>
-              {this.state.indents}
+            <select onChange={this.updateSelectedTestType}>
+              {this.setTestTypeOptions()}
             </select>
           </div>
         </div>
@@ -77,8 +65,8 @@ class CreateANewTest extends React.Component {
             to={{
               pathname: '/startTest',
               candidateName: this.state.candidateName,
-              testType: this.state.testType,
-              questions: this.getQuestionsByTestType(this.state.testType)
+              testType: this.state.selectedTestType,
+              questions: this.getQuestionsByTestType()
             }}
           >
             Create a New Test
