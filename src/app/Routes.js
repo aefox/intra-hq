@@ -9,6 +9,9 @@ import RecruitmentDashboard from './RecruitmentDashboard';
 import TakeTest from './TakeTest';
 import TrainingPaths from './TrainingPaths';
 
+import StartTest from './TakeTest/startTest';
+import ShowQuestions from './TakeTest/showQuestions';
+
 const Routes = () =>
   <div>
     <Route path={'/candidates'} component={Candidates} />
@@ -18,6 +21,8 @@ const Routes = () =>
     <Route path={'/recruitment-dashboard'} component={RecruitmentDashboard} />
     <Route path={'/training-paths'} component={TrainingPaths} />
     <Route path={'/take-test'} component={TakeTest} />
+    <Route path={'/startTest'} component={StartTest} />
+    <Route path={'/showQuestions'} component={ShowQuestions} />
     <Route path={'/'} exact component={App} />
   </div>;
 
