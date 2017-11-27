@@ -51,10 +51,7 @@ class AddTrainingPath extends React.Component {
     const path = { name: this.state.name, topics: this.state.selectedTopics };
     addTrainingPath(path).then(
       response => {
-        this.props.dispatch({
-          type: 'ADD_PATH',
-          path: response
-        });
+        this.props.addPath(response);
 
         this.setState({ isLoading: false });
         this.props.history.goBack();
@@ -100,6 +97,10 @@ class AddTrainingPath extends React.Component {
   }
 }
 
-AddTrainingPath = connect()(AddTrainingPath);
+const mapDispatchToProps = dispatch => ({
+  addPath: path => dispatch({ type: 'ADD_PATH', path })
+});
+
+AddTrainingPath = connect(null, mapDispatchToProps)(AddTrainingPath);
 
 export default AddTrainingPath;
