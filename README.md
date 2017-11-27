@@ -11,10 +11,13 @@ Make sure you are using recent versions of node and npm. No problems have been f
 ### Yarn
 Make sure you are using yarn>=0.23
 
+### json-server
+We're using [json-server](https://github.com/typicode/json-server) to mock our API needs.
+You need to install this globally with `yarn global add json-server`.
+
 ## Running the project
 
 From the command line run the following:
 - `yarn install` (this will download all dependencies)
 - `yarn start` (this will start the webpack development server with hot reload)
-- `yarn run storybook` (this will start a separate webpack server for storybook, also with hot reloading)
-
+- `yarn jsonserver` (this will start the json-server we're using to mock the API)
