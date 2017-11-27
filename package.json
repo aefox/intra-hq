@@ -5,21 +5,25 @@
 	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
-		"react": "^16.0.0",
-		"react-dom": "^16.0.0",
+		"react": "^16.1.1",
+		"react-dom": "^16.1.1",
 		"react-router": "^4.2.0",
 		"react-router-dom": "^4.2.2",
-		"react-scripts": "^1.0.14"
+		"react-scripts": "^1.0.17",
+		"react-test-renderer": "^16.1.1"
 	},
 	"devDependencies": {
-		"cross-env": "^5.1.0",
+		"cross-env": "^5.1.1",
+		"enzyme": "^3.2.0",
+		"enzyme-adapter-react-16": "^1.1.0",
+		"jest-enzyme": "^4.0.1",
 		"husky": "^0.14.3",
-		"json-server": "^0.12.0",
-		"lint-staged": "^4.3.0",
-		"prettier": "^1.7.4"
+		"json-server": "^0.12.1",
+		"lint-staged": "^5.0.0",
+		"prettier": "^1.8.2"
 	},
 	"scripts": {
-		"jsonserver": "json-server db.json --watch --port 3005",
+		"jsonserver": "json-server json-server/db.json --watch --port 3005",
 		"precommit": "lint-staged",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
