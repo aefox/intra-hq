@@ -21,7 +21,6 @@ class TrainingPaths extends Component {
   }
 
   removePath(deletedPath) {
-    debugger;
     deletePath(deletedPath.id).then(() => {
       this.props.dispatch({
         type: 'DELETE_PATH',
