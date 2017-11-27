@@ -6,7 +6,9 @@ class AddTrainingPath extends React.Component {
   state = {
     topics: ['SQL', 'REST', 'JS', 'REACT', 'NODE.JS'],
     selectedTopics: [],
-    name: ''
+    name: '',
+    isLoading: false,
+    errorMessage: null
   };
 
   addToSelectedTopics(topicName) {
@@ -44,18 +46,33 @@ class AddTrainingPath extends React.Component {
   }
 
   savePath() {
-    const path = { name: this.state.name, topics: this.state.selectedTopics };
-    addTrainingPath(path).then(response => {
-      this.props.dispatch({
-        type: 'ADD_PATH',
-        path: response
-      });
+    this.setState({ isLoading: true });
 
-      this.props.history.goBack();
-    });
+    const path = { name: this.state.name, topics: this.state.selectedTopics };
+    addTrainingPath(path).then(
+      response => {
+        this.props.dispatch({
+          type: 'ADD_PATH',
+          path: response
+        });
+
+        this.setState({ isLoading: false });
+        this.props.history.goBack();
+      },
+      () => {
+        this.setState({
+          isLoading: false,
+          errorMessage: 'An error occured. Please try again.'
+        });
+      }
+    );
   }
 
   render() {
+    if (this.state.isLoading) {
+      return <p> Loading.. </p>;
+    }
+
     return (
       <div>
         <div className="topics">
@@ -66,6 +83,7 @@ class AddTrainingPath extends React.Component {
           type="text"
           className="path-name"
           placeholder="Path name.."
+          value={this.state.name}
           onChange={event => this.setState({ name: event.target.value })}
         />
         <div className="topics">
@@ -73,6 +91,10 @@ class AddTrainingPath extends React.Component {
         </div>
         <div className="topics" />
         <button onClick={() => this.savePath()}> Save </button>
+
+        {this.state.errorMessage && (
+          <p className="error-message"> {this.state.errorMessage} </p>
+        )}
       </div>
     );
   }
