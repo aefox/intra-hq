@@ -1,4 +1,5 @@
 import React from 'react';
+import { addTrainingPath } from '../service';
 
 class AddTrainingPath extends React.Component {
   state = {
@@ -43,12 +44,7 @@ class AddTrainingPath extends React.Component {
 
   savePath() {
     const path = { name: this.state.name, topics: this.state.selectedTopics };
-
-    fetch('http://localhost:9000/paths', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(path)
-    }).then(() => {
+    addTrainingPath(path).then(() => {
       this.props.history.goBack();
     });
   }

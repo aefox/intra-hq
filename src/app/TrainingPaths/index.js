@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getTrainingPaths, deletePath } from './service';
 
 window.paths = [];
 
@@ -9,14 +10,9 @@ class TrainingPaths extends Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:9000/paths', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(response => response.json())
-      .then(paths => {
-        this.setState({ paths });
-      });
+    getTrainingPaths().then(paths => {
+      this.setState({ paths });
+    });
   }
 
   renderPaths() {
@@ -30,10 +26,7 @@ class TrainingPaths extends Component {
   }
 
   removePath(deletedPath) {
-    fetch('http://localhost:9000/paths/' + deletedPath.id, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-    }).then(() => {
+    deletePath(deletedPath.id).then(() => {
       this.setState({
         paths: this.state.paths.filter(path => path !== deletedPath)
       });
