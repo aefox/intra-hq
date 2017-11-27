@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { getTrainingPaths, deletePath } from './service';
 
-window.paths = [];
-
 class TrainingPaths extends Component {
-  state = {
-    paths: []
-  };
-
   componentDidMount() {
     getTrainingPaths().then(paths => {
-      this.setState({ paths });
+      this.props.dispatch({ type: 'UPDATE_PATHS', paths });
     });
   }
 
   renderPaths() {
-    return this.state.paths.map(path => (
+    return this.props.paths.map(path => (
       <div key={path.id}>
         <div>{path.name}</div>
         <button onClick={() => this.removePath(path)}> X </button>
@@ -26,9 +21,11 @@ class TrainingPaths extends Component {
   }
 
   removePath(deletedPath) {
+    debugger;
     deletePath(deletedPath.id).then(() => {
-      this.setState({
-        paths: this.state.paths.filter(path => path !== deletedPath)
+      this.props.dispatch({
+        type: 'DELETE_PATH',
+        deletedPathId: deletedPath.id
       });
     });
   }
@@ -48,5 +45,9 @@ class TrainingPaths extends Component {
     );
   }
 }
+
+const mapStateToProps = store => ({ paths: store.trainingPaths });
+
+TrainingPaths = connect(mapStateToProps)(TrainingPaths);
 
 export default TrainingPaths;

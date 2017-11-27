@@ -1,5 +1,6 @@
 import React from 'react';
 import { addTrainingPath } from '../service';
+import { connect } from 'react-redux';
 
 class AddTrainingPath extends React.Component {
   state = {
@@ -44,7 +45,12 @@ class AddTrainingPath extends React.Component {
 
   savePath() {
     const path = { name: this.state.name, topics: this.state.selectedTopics };
-    addTrainingPath(path).then(() => {
+    addTrainingPath(path).then(response => {
+      this.props.dispatch({
+        type: 'ADD_PATH',
+        path: response
+      });
+
       this.props.history.goBack();
     });
   }
@@ -71,5 +77,7 @@ class AddTrainingPath extends React.Component {
     );
   }
 }
+
+AddTrainingPath = connect()(AddTrainingPath);
 
 export default AddTrainingPath;
