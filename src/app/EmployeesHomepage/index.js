@@ -1,10 +1,9 @@
 import React from 'react';
+import EmployeesList from './EmployeesList';
 
 const Mock = ({ match }) =>
-  <div>
-    <p>
-      {match.url}
-    </p>
+  <div className="Employees">
+    <EmployeesList />
   </div>;
 
 export default Mock;
